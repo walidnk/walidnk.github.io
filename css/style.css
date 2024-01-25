@@ -16,6 +16,9 @@
 #home {
   color: #fff;
 }
+.nav-link {
+  color: #fff;
+}
 
 .navbar-fixed {
   position: fixed;
