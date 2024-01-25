@@ -147,11 +147,39 @@
 
 }());
 
-function showText(buttonNumber) {
-    var textElement = document.getElementById("hiddenText" + buttonNumber);
-    if (textElement.style.display === "none") {
-        textElement.style.display = "block";
-    } else {
-        textElement.style.display = "none";
-    }
-}
+$( '.navbar-nav a' ).on( 'click', function () {
+	$( '.navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+	$( this ).parent( 'li' ).addClass( 'active' );
+});
+
+// Smooth scroll to anchor links
+$('.navbar-nav a').on('click', function (e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    $('html, body').animate({
+        scrollTop: $(target).offset().top
+    }, 1000);
+});
+
+// Highlight active section while scrolling
+$(document).on('scroll', function () {
+    var scrollPos = $(document).scrollTop();
+
+    // Iterate over each section to find the active one
+    $('.navbar-nav a').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr('href'));
+
+        if (
+            refElement.position().top <= scrollPos &&
+            refElement.position().top + refElement.height() > scrollPos
+        ) {
+            // Remove 'active' class from all list items and add it to the current one
+            $('.navbar-nav li').removeClass('active');
+            currLink.parent('li').addClass('active');
+        } else {
+            // If the section is not in view, remove 'active' class
+            currLink.parent('li').removeClass('active');
+        }
+    });
+});
