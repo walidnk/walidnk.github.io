@@ -17,7 +17,7 @@
   color: #fff;
 }
 .nav-link {
-  color: #fff;
+  color: #fff !important;
 }
 
 .navbar-fixed {
@@ -94,11 +94,11 @@
   background-color: #73a5d6;
 }
 
-.dropdown-menu>li>a:hover {
+/* .dropdown-menu>li>a:hover {
   color: #c9c3c3;
   text-decoration: none;
   background-color: #121212;
-}
+} */
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
